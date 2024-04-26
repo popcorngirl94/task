@@ -54,7 +54,7 @@ const RecordForm = ({ onAddRecord, countries }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    onAddRecord(formData);
+    onAddRecord({ ...formData, id: Date.now() });
     setFormData({
       name: '',
       email: '',

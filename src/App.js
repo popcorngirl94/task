@@ -1,4 +1,4 @@
-// App.js
+
 
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
@@ -13,6 +13,7 @@ const API_URL = 'https://restcountries.com/v3.1/all';
 const App = () => {
   const [records, setRecords] = useState([]);
   const [countries, setCountries] = useState([]);
+  const [editingRecordId, setEditingRecordId] = useState(null);
 
   useEffect(() => {
     axios.get(API_URL)
@@ -28,13 +29,13 @@ const App = () => {
     setRecords(prevRecords => [...prevRecords, record]);
   };
 
-  const handleDeleteRecord = index => {
-    setRecords(prevRecords => prevRecords.filter((_, i) => i !== index));
+  const handleDeleteRecord = id=> {
+    setRecords(prevRecords => prevRecords.filter(record => record.id !== id));
   };
 
-  const handleEditRecord = index => {
+  const handleEditRecord = id => {
     // Placeholder for editing record logic
-    console.log('Editing record at index:', index);
+    setEditingRecordId(id);
   };
 
   const navigateToProfiles = () => {
