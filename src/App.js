@@ -47,7 +47,7 @@ const App = () => {
     <Router>
       <div className="app-container">
         <RecordForm onAddRecord={handleAddRecord} countries={countries} />
-        <h1>Records</h1>
+        <br/><h1>Records</h1>
         <RecordTable records={records} onDelete={handleDeleteRecord} onEdit={handleEditRecord} navigateToProfiles={navigateToProfiles} />
         <div>
           <Link to="/profiles">Go to Profiles</Link>
